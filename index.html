@@ -1,19 +1,24 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pesquisa: IA e Processos Cognitivos (Anônima)</title>
-  <meta name="description" content="Formulário anônimo sobre impactos da IA nos processos cognitivos de jovens acadêmicos." />
+  <meta name="description"
+    content="Formulário anônimo sobre impactos da IA nos processos cognitivos de jovens acadêmicos." />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <main class="container">
     <div class="card">
       <header class="form-head">
         <div class="badge" aria-hidden="true">Formulário Anônimo</div>
         <h1>Pesquisa — IA & Processos Cognitivos</h1>
-        <p class="lead">Questionário <strong>anônimo</strong> para avaliar efeitos do uso de IA na aprendizagem, memória, atenção e tomada de decisão de jovens acadêmicos. Não coletamos nome, e‑mail ou identificadores pessoais.</p>
+        <p class="lead">Questionário <strong>anônimo</strong> para avaliar efeitos do uso de IA na aprendizagem,
+          memória, atenção e tomada de decisão de jovens acadêmicos. Não coletamos nome, e‑mail ou identificadores
+          pessoais.</p>
       </header>
 
       <form id="survey" autocomplete="off" aria-describedby="privacy-note">
@@ -25,17 +30,23 @@
         </ol>
         <!-- Aviso de anonimato e consentimento -->
         <section class="consent" role="region" aria-label="Consentimento e anonimato">
-          <p id="privacy-note" class="hint">🔒 Este formulário é anônimo. Não registre seu nome, e‑mail, RA ou qualquer dado identificável. O servidor de destino pode registrar dados técnicos (por exemplo, IP) conforme configuração do seu provedor. Use endpoints que <em>não</em> gravem IP se desejar anonimizar totalmente.</p>
+          <p id="privacy-note" class="hint">🔒 As respostas são coletadas de forma confidencial e não permitem a
+            identificação dos participantes.
+            Por favor, não insira nome, e-mail, RA ou qualquer informação pessoal que possa associar sua identidade às
+            respostas.
+            O objetivo é garantir sigilo e imparcialidade total na coleta dos dados.</p>
           <label class="chip chip-inline" for="consent">
             <input id="consent" name="consent" type="checkbox" required>
-            <span class="chip-label">Li e concordo em participar voluntariamente desta pesquisa.<span class="required" aria-hidden="true">*</span></span>
+            <span class="chip-label">Li e concordo em participar voluntariamente desta pesquisa.<span class="required"
+                aria-hidden="true">*</span></span>
           </label>
         </section>
 
         <!-- Perfil mínimo (anônimo): faixas etárias e curso opcional -->
         <fieldset aria-describedby="demographic-note">
           <legend>Perfil Demográfico (opcional)</legend>
-          <p id="demographic-note" class="legend-sub">Compartilhe apenas se desejar; os dados são analisados de forma agregada e sem identificação individual.</p>
+          <p id="demographic-note" class="legend-sub">Compartilhe apenas se desejar; os dados são analisados de forma
+            agregada e sem identificação individual.</p>
           <div class="grid grid-2">
             <div class="input-group">
               <label for="ageRange">Faixa etária atual</label>
@@ -49,7 +60,8 @@
                   <option>26+</option>
                 </select>
               </div>
-              <p class="hint">Manter uma faixa etária ampla evita identificação direta e sustenta a análise estatística.</p>
+              <p class="hint">Manter uma faixa etária ampla evita identificação direta e sustenta a análise estatística.
+              </p>
             </div>
             <div class="input-group">
               <label for="semester">Período/semestre atual (opcional)</label>
@@ -70,10 +82,12 @@
         <!-- Frequência e contexto de uso -->
         <fieldset aria-describedby="usage-note">
           <legend>Uso de IA</legend>
-          <p id="usage-note" class="legend-sub">Dimensões que caracterizam a intensidade e os cenários de uso da IA na vida acadêmica e pessoal.</p>
+          <p id="usage-note" class="legend-sub">Dimensões que caracterizam a intensidade e os cenários de uso da IA na
+            vida acadêmica e pessoal.</p>
           <div class="grid grid-2">
             <div class="input-group">
-              <label for="freq">Frequência de uso de IA em atividades acadêmicas<span class="required" aria-hidden="true">*</span></label>
+              <label for="freq">Frequência de uso de IA em atividades acadêmicas<span class="required"
+                  aria-hidden="true">*</span></label>
               <div class="select-wrapper">
                 <select id="freq" name="freq" required>
                   <option value="">Selecione uma opção…</option>
@@ -116,7 +130,8 @@
         <!-- Impactos cognitivos (Likert) -->
         <fieldset aria-describedby="impact-note">
           <legend>Percepção de Impactos Cognitivos</legend>
-          <p id="impact-note" class="legend-sub">Avalie o quanto você concorda com cada afirmação sobre efeitos cognitivos observados ao usar IA.</p>
+          <p id="impact-note" class="legend-sub">Avalie o quanto você concorda com cada afirmação sobre efeitos
+            cognitivos observados ao usar IA.</p>
           <div class="grid">
             <div class="input-group">
               <label for="compr">O uso de IA amplia minha compreensão de novos conteúdos.</label>
@@ -176,7 +191,8 @@
         <!-- Riscos e desafios -->
         <fieldset aria-describedby="risk-note">
           <legend>Riscos e Desafios</legend>
-          <p id="risk-note" class="legend-sub">Indique seu grau de concordância com possíveis riscos associados ao uso contínuo de IA.</p>
+          <p id="risk-note" class="legend-sub">Indique seu grau de concordância com possíveis riscos associados ao uso
+            contínuo de IA.</p>
           <div class="grid">
             <div class="input-group">
               <label for="dep">Sinto dependência de soluções de IA para concluir atividades acadêmicas.</label>
@@ -224,7 +240,8 @@
         <!-- Estratégias e senso crítico -->
         <fieldset aria-describedby="strategy-note">
           <legend>Estratégias e Senso Crítico</legend>
-          <p id="strategy-note" class="legend-sub">Identifique estratégias adotadas e a percepção geral sobre o papel da IA no processo de aprendizagem.</p>
+          <p id="strategy-note" class="legend-sub">Identifique estratégias adotadas e a percepção geral sobre o papel da
+            IA no processo de aprendizagem.</p>
           <div class="grid">
             <div class="input-group">
               <label for="equilibrio">Você adota estratégias estruturadas para equilibrar IA e estudo autônomo?</label>
@@ -438,4 +455,5 @@
     });
   </script>
 </body>
+
 </html>
