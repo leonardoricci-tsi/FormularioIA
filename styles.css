@@ -113,18 +113,15 @@ legend::before {
 }
 
 .form-steps {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
   list-style: none;
   padding: 0;
   margin: 0 0 18px;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  scrollbar-width: none;
 }
 .form-steps::-webkit-scrollbar { display: none; }
 .form-steps li {
-  flex: 0 0 auto;
   min-width: 0;
   background: rgba(255,255,255,.04);
   border: 1px solid rgba(79,70,229,.25);
@@ -133,48 +130,36 @@ legend::before {
   font-size: .78rem;
   font-weight: 600;
   color: #cbd5f5;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 10px;
-  justify-content: center;
-  text-align: center;
-  scroll-snap-align: start;
+  gap: 12px;
 }
 .form-steps li::before {
   content: attr(data-step);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: rgba(79,70,229,.35);
   color: white;
-  font-size: .75rem;
+  font-size: .78rem;
   font-weight: 700;
-}
-@media (min-width: 760px) {
-  .form-steps { overflow: visible; }
-  .form-steps li { flex: 1 1 auto; min-width: 0; }
+  justify-self: start;
 }
 @media (max-width: 620px) {
-  .form-steps {
-    gap: 8px;
-    flex-wrap: wrap;
-    overflow: visible;
-    scroll-snap-type: none;
-  }
+  .form-steps { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
   .form-steps li {
-    flex: 1 1 calc(50% - 8px);
-    min-width: 140px;
     padding: 8px 12px;
     font-size: .74rem;
-    justify-content: center;
+    gap: 10px;
   }
   .form-steps li::before {
     width: 24px;
     height: 24px;
-    font-size: .72rem;
+    font-size: .7rem;
   }
 }
 
