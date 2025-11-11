@@ -5,139 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pesquisa: IA e Processos Cognitivos (Anônima)</title>
   <meta name="description" content="Formulário anônimo sobre impactos da IA nos processos cognitivos de jovens acadêmicos." />
-  <style>
-    :root {
-      --bg: #0b0f15;       /* fundo escuro elegante */
-      --card: #121826;     /* cartão */
-      --muted: #9aa4b2;    /* texto secundário */
-      --text: #e6edf3;     /* texto principal */
-      --brand: #4f46e5;    /* destaque */
-      --ok: #16a34a;       /* sucesso */
-      --warn: #d97706;     /* alerta */
-      --err: #ef4444;      /* erro */
-      --border: #1f2a3a;   /* bordas sutis */
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius-xl: 20px;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: radial-gradient(1200px 1200px at 10% 0%, #151d2c 0%, var(--bg) 60%); color: var(--text); }
-
-    .container { max-width: 900px; margin: clamp(16px, 5vw, 48px) auto; padding: 0 16px; }
-    .card { background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02)); border: 1px solid var(--border); border-radius: var(--radius-xl); box-shadow: var(--shadow); padding: clamp(16px, 3.2vw, 32px); }
-    h1 { font-size: clamp(1.4rem, 2.4vw + .6rem, 2.2rem); margin: 0 0 8px; letter-spacing: 0.2px; }
-    p.lead { color: var(--muted); margin-top: 0; margin-bottom: 24px; }
-
-    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; background: rgba(79,70,229,.15); color: #c7d2fe; border: 1px solid rgba(79,70,229,.35); font-weight: 600; font-size: .85rem; margin-bottom: 8px; }
-
-    form { display: grid; gap: 22px; counter-reset: section; }
-    fieldset {
-      border: 1px dashed var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      background: linear-gradient(180deg, rgba(20,24,36,.85), rgba(10,14,22,.85));
-      transition: border .2s ease, box-shadow .2s ease;
-    }
-    fieldset:hover { border-color: rgba(79,70,229,.45); box-shadow: 0 4px 18px rgba(79,70,229,.12); }
-    fieldset:focus-within { border-color: rgba(99,102,241,.6); box-shadow: 0 6px 22px rgba(79,70,229,.18); }
-    legend { display: inline-flex; align-items: center; gap: 12px; padding: 0 8px; color: #e2e8f5; font-weight: 700; letter-spacing: .2px; text-transform: uppercase; font-size: .82rem; }
-    legend::before { counter-increment: section; content: counter(section); display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(79,70,229,.2); border: 1px solid rgba(79,70,229,.5); color: #c7d2fe; font-size: .9rem; font-weight: 600; }
-    .legend-sub { display: block; font-size: .75rem; font-weight: 500; letter-spacing: normal; color: var(--muted); text-transform: none; margin-left: 40px; margin-top: 6px; }
-
-    .form-steps { display: flex; gap: 10px; list-style: none; padding: 0; margin: 0 0 12px; }
-    .form-steps li { flex: 1; background: rgba(255,255,255,.04); border: 1px solid rgba(79,70,229,.25); border-radius: 999px; padding: 10px 14px; font-size: .78rem; font-weight: 600; color: #cbd5f5; display: flex; align-items: center; gap: 10px; justify-content: center; text-align: center; }
-    .form-steps li::before { content: attr(data-step); display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: rgba(79,70,229,.35); color: white; font-size: .75rem; font-weight: 700; }
-    @media (max-width: 600px) { .form-steps { flex-direction: column; } }
-
-    .grid { display: grid; gap: 18px; }
-    @media (min-width: 720px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-
-    .input-group { display: flex; flex-direction: column; gap: 6px; }
-    label { display: block; font-weight: 600; }
-    .hint { color: var(--muted); font-size: .92rem; margin-top: 6px; }
-
-    input[type="text"], input[type="number"], textarea {
-      width: 100%; background: #0f1623; color: var(--text); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; outline: none; transition: border .2s, box-shadow .2s, background .2s;
-    }
-    textarea { min-height: 110px; resize: vertical; }
-    input:focus, textarea:focus { border-color: rgba(79,70,229,.7); box-shadow: 0 0 0 4px rgba(79,70,229,.15); }
-    select:invalid { color: rgba(156,163,175,.9); }
-
-    .select-wrapper {
-      position: relative;
-      background: linear-gradient(180deg, rgba(20,29,43,.95), rgba(12,18,28,.95));
-      border: 1px solid rgba(79,70,229,.3);
-      border-radius: 12px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
-      transition: border .2s ease, box-shadow .2s ease;
-    }
-    .select-wrapper:hover { border-color: rgba(99,102,241,.45); box-shadow: 0 4px 16px rgba(79,70,229,.14), inset 0 1px 0 rgba(255,255,255,.08); }
-    .select-wrapper:focus-within { border-color: rgba(99,102,241,.7); box-shadow: 0 0 0 4px rgba(79,70,229,.18), inset 0 1px 0 rgba(255,255,255,.08); }
-    .select-wrapper select {
-      width: 100%;
-      display: block;
-      border: none;
-      background: transparent;
-      padding: 14px 48px 14px 16px;
-      font-size: 1rem;
-      color: inherit;
-      box-shadow: none;
-      appearance: none;
-      -webkit-appearance: none;
-      cursor: pointer;
-      outline: none;
-    }
-    .select-wrapper select:focus { box-shadow: none; }
-    .select-wrapper::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      right: 18px;
-      width: 12px;
-      height: 12px;
-      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.25 4.5L6 8.25 9.75 4.5' fill='none' stroke='%23D7DCFF' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 100%;
-      transform: translateY(-50%);
-      pointer-events: none;
-      opacity: .9;
-    }
-
-    .options { display: grid; gap: 8px; }
-    .inline { display: flex; flex-wrap: wrap; gap: 12px 20px; }
-    .chip { display: inline-flex; gap: 10px; align-items: center; }
-    .chip input { accent-color: var(--brand); }
-
-    .required { color: #fca5a5; margin-left: 4px; }
-
-    .btns { display: flex; gap: 12px; flex-wrap: wrap; }
-    button {
-      border: 1px solid transparent; border-radius: 14px; padding: 12px 18px; font-weight: 700; cursor: pointer; transition: transform .08s ease, box-shadow .2s ease, background .2s ease; will-change: transform;
-    }
-    .primary { background: linear-gradient(180deg, #6366f1, #4f46e5); color: white; box-shadow: 0 8px 22px rgba(79,70,229,.35); }
-    .primary:hover { transform: translateY(-1px); }
-    .ghost { background: transparent; color: #cbd5e1; border-color: var(--border); }
-    button:focus-visible { outline: 2px solid rgba(99,102,241,.7); outline-offset: 3px; }
-
-    .consent { background: rgba(20, 83, 45, .15); border: 1px solid rgba(34, 197, 94, .25); padding: 14px; border-radius: 12px; }
-
-    .footer { color: var(--muted); font-size: .9rem; margin-top: 14px; }
-
-    .success { display: none; padding: 26px; border: 1px solid rgba(22,163,74,.25); background: rgba(22,163,74,.12); border-radius: 16px; }
-    .success h2 { margin: 0 0 6px; }
-
-    .error { display: none; padding: 16px; border: 1px solid rgba(239,68,68,.35); background: rgba(239,68,68,.08); border-radius: 14px; }
-
-    .visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); white-space: nowrap; }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="container">
     <div class="card">
-      <div class="badge" aria-hidden="true">Formulário Anônimo</div>
-      <h1>Pesquisa — IA & Processos Cognitivos</h1>
-      <p class="lead">Questionário <strong>anônimo</strong> para avaliar efeitos do uso de IA na aprendizagem, memória, atenção e tomada de decisão de jovens acadêmicos. Não coletamos nome, e‑mail ou identificadores pessoais.</p>
+      <header class="form-head">
+        <div class="badge" aria-hidden="true">Formulário Anônimo</div>
+        <h1>Pesquisa — IA & Processos Cognitivos</h1>
+        <p class="lead">Questionário <strong>anônimo</strong> para avaliar efeitos do uso de IA na aprendizagem, memória, atenção e tomada de decisão de jovens acadêmicos. Não coletamos nome, e‑mail ou identificadores pessoais.</p>
+      </header>
 
       <form id="survey" autocomplete="off" aria-describedby="privacy-note">
         <ol class="form-steps" aria-hidden="true">
@@ -149,16 +26,16 @@
         <!-- Aviso de anonimato e consentimento -->
         <section class="consent" role="region" aria-label="Consentimento e anonimato">
           <p id="privacy-note" class="hint">🔒 Este formulário é anônimo. Não registre seu nome, e‑mail, RA ou qualquer dado identificável. O servidor de destino pode registrar dados técnicos (por exemplo, IP) conforme configuração do seu provedor. Use endpoints que <em>não</em> gravem IP se desejar anonimizar totalmente.</p>
-          <label class="inline chip" for="consent">
+          <label class="chip chip-inline" for="consent">
             <input id="consent" name="consent" type="checkbox" required>
-            <span>Li e concordo em participar voluntariamente desta pesquisa.<span class="required" aria-hidden="true">*</span></span>
+            <span class="chip-label">Li e concordo em participar voluntariamente desta pesquisa.<span class="required" aria-hidden="true">*</span></span>
           </label>
         </section>
 
         <!-- Perfil mínimo (anônimo): faixas etárias e curso opcional -->
-        <fieldset>
+        <fieldset aria-describedby="demographic-note">
           <legend>Perfil Demográfico (opcional)</legend>
-          <p class="legend-sub">Compartilhe apenas se desejar; os dados são analisados de forma agregada e sem identificação individual.</p>
+          <p id="demographic-note" class="legend-sub">Compartilhe apenas se desejar; os dados são analisados de forma agregada e sem identificação individual.</p>
           <div class="grid grid-2">
             <div class="input-group">
               <label for="ageRange">Faixa etária atual</label>
@@ -191,9 +68,9 @@
         </fieldset>
 
         <!-- Frequência e contexto de uso -->
-        <fieldset>
+        <fieldset aria-describedby="usage-note">
           <legend>Uso de IA</legend>
-          <p class="legend-sub">Dimensões que caracterizam a intensidade e os cenários de uso da IA na vida acadêmica e pessoal.</p>
+          <p id="usage-note" class="legend-sub">Dimensões que caracterizam a intensidade e os cenários de uso da IA na vida acadêmica e pessoal.</p>
           <div class="grid grid-2">
             <div class="input-group">
               <label for="freq">Frequência de uso de IA em atividades acadêmicas<span class="required" aria-hidden="true">*</span></label>
@@ -211,20 +88,35 @@
             <div class="input-group">
               <label>Em quais contextos você utiliza IA? (marque quantos forem pertinentes)</label>
               <div class="options">
-                <label class="chip"><input type="checkbox" name="context" value="Estudos"> Estudos/pesquisa acadêmica</label>
-                <label class="chip"><input type="checkbox" name="context" value="Profissional"> Tarefas pessoais/profissionais</label>
-                <label class="chip"><input type="checkbox" name="context" value="Lazer"> Lazer/entretenimento</label>
-                <label class="chip"><input type="checkbox" name="context" value="Escrita"> Apoio à escrita/textos</label>
-                <label class="chip"><input type="checkbox" name="context" value="Outro"> Outro</label>
+                <label class="chip">
+                  <input type="checkbox" name="context" value="Estudos">
+                  <span class="chip-label">Estudos/pesquisa acadêmica</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="context" value="Profissional">
+                  <span class="chip-label">Tarefas pessoais/profissionais</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="context" value="Lazer">
+                  <span class="chip-label">Lazer/entretenimento</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="context" value="Escrita">
+                  <span class="chip-label">Apoio à escrita/textos</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="context" value="Outro">
+                  <span class="chip-label">Outro</span>
+                </label>
               </div>
             </div>
           </div>
         </fieldset>
 
         <!-- Impactos cognitivos (Likert) -->
-        <fieldset>
+        <fieldset aria-describedby="impact-note">
           <legend>Percepção de Impactos Cognitivos</legend>
-          <p class="legend-sub">Avalie o quanto você concorda com cada afirmação sobre efeitos cognitivos observados ao usar IA.</p>
+          <p id="impact-note" class="legend-sub">Avalie o quanto você concorda com cada afirmação sobre efeitos cognitivos observados ao usar IA.</p>
           <div class="grid">
             <div class="input-group">
               <label for="compr">O uso de IA amplia minha compreensão de novos conteúdos.</label>
@@ -282,9 +174,9 @@
         </fieldset>
 
         <!-- Riscos e desafios -->
-        <fieldset>
+        <fieldset aria-describedby="risk-note">
           <legend>Riscos e Desafios</legend>
-          <p class="legend-sub">Indique seu grau de concordância com possíveis riscos associados ao uso de IA.</p>
+          <p id="risk-note" class="legend-sub">Indique seu grau de concordância com possíveis riscos associados ao uso contínuo de IA.</p>
           <div class="grid">
             <div class="input-group">
               <label for="dep">Sinto dependência de soluções de IA para concluir atividades acadêmicas.</label>
@@ -330,9 +222,9 @@
         </fieldset>
 
         <!-- Estratégias e senso crítico -->
-        <fieldset>
+        <fieldset aria-describedby="strategy-note">
           <legend>Estratégias e Senso Crítico</legend>
-          <p class="legend-sub">Identifique estratégias adotadas e a percepção geral sobre o papel da IA no processo de aprendizagem.</p>
+          <p id="strategy-note" class="legend-sub">Identifique estratégias adotadas e a percepção geral sobre o papel da IA no processo de aprendizagem.</p>
           <div class="grid">
             <div class="input-group">
               <label for="equilibrio">Você adota estratégias estruturadas para equilibrar IA e estudo autônomo?</label>
